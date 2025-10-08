@@ -39,11 +39,11 @@
       "id": 3,
       "title": "issue",
       "description": "issue from another window",
-      "status": "Open",
+      "status": "Closed",
       "createdBy": "Parul Rana",
       "comments": [],
       "createdAt": "2025-10-08T09:13:56.255Z",
-      "updatedAt": "2025-10-08T09:13:56.255Z"
+      "updatedAt": "2025-10-08T09:14:09.702Z"
     }
   ]
 }
