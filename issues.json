@@ -139,9 +139,16 @@
       "description": "try7",
       "status": "Open",
       "createdBy": "Parul",
-      "comments": [],
+      "comments": [
+        {
+          "id": 1759918863463,
+          "author": "Parul Rana",
+          "text": "test comment 4",
+          "createdAt": "2025-10-08T10:21:03.463Z"
+        }
+      ],
       "createdAt": "2025-10-08T10:20:40.746Z",
-      "updatedAt": "2025-10-08T10:20:40.746Z"
+      "updatedAt": "2025-10-08T10:21:03.463Z"
     }
   ]
 }
