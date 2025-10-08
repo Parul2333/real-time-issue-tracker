@@ -1,5 +1,5 @@
 {
-  "nextId": 2,
+  "nextId": 3,
   "issues": [
     {
       "id": 1,
@@ -17,6 +17,16 @@
       ],
       "createdAt": "2025-10-08T09:08:34.140Z",
       "updatedAt": "2025-10-08T09:10:11.514Z"
+    },
+    {
+      "id": 2,
+      "title": "issue2",
+      "description": "second issue",
+      "status": "Open",
+      "createdBy": "Parul",
+      "comments": [],
+      "createdAt": "2025-10-08T09:10:45.458Z",
+      "updatedAt": "2025-10-08T09:10:45.458Z"
     }
   ]
 }
