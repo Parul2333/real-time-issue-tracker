@@ -1,7 +1,10 @@
 // public/main.js
 const ws = new WebSocket((location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host);
-
 let state = { nextId: 1, issues: [] };
+
+function escapeHtml(str = '') {
+  return str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 
 function render() {
   const tbody = document.querySelector('#issuesTable tbody');
@@ -9,7 +12,6 @@ function render() {
   state.issues.forEach(issue => {
     const tr = document.createElement('tr');
 
-    // comments cell
     const commentsCell = document.createElement('td');
     if (issue.comments && issue.comments.length) {
       issue.comments.forEach(c => {
@@ -18,12 +20,11 @@ function render() {
         div.textContent = `${c.author}: ${c.text} (${new Date(c.createdAt).toLocaleString()})`;
         commentsCell.appendChild(div);
       });
-    } else {
-      commentsCell.textContent = '—';
-    }
+    } else commentsCell.textContent = '—';
 
     const actionsCell = document.createElement('td');
 
+    // Status dropdown
     const statusSelect = document.createElement('select');
     ['Open', 'In Progress', 'Closed'].forEach(s => {
       const opt = document.createElement('option');
@@ -38,6 +39,7 @@ function render() {
       }));
     });
 
+    // Comment input
     const commentInput = document.createElement('input');
     commentInput.placeholder = 'Comment...';
     const commentBtn = document.createElement('button');
@@ -67,14 +69,12 @@ function render() {
   });
 }
 
-function escapeHtml(str = '') {
-  return str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
-
-ws.addEventListener('open', () => console.log('WS open'));
-ws.addEventListener('message', (ev) => {
+// WebSocket events
+ws.addEventListener('open', () => console.log('WS connected'));
+ws.addEventListener('message', ev => {
   try {
     const msg = JSON.parse(ev.data);
+
     if (msg.type === 'init') {
       state = msg.data;
       render();
@@ -85,27 +85,24 @@ ws.addEventListener('message', (ev) => {
       state.issues = state.issues.map(i => i.id === msg.issue.id ? msg.issue : i);
       render();
     } else if (msg.type === 'comment_added') {
-      const idx = state.issues.findIndex(i => i.id === msg.issueId);
-      if (idx !== -1) state.issues[idx] = state.issues[idx] || {}; // keep safe
       const issue = state.issues.find(i => i.id === msg.issueId);
       if (issue) {
         issue.comments = issue.comments || [];
         issue.comments.push(msg.comment);
+        render();
       }
-      render();
     } else if (msg.type === 'error') {
       alert('Server error: ' + msg.message);
     }
-  } catch (err) {
-    console.error('WS parse error', err);
-  }
+  } catch (err) { console.error('WS parse error', err); }
 });
 
+// Create issue button
 document.getElementById('createBtn').addEventListener('click', () => {
   const title = document.getElementById('title').value.trim();
   const desc = document.getElementById('description').value.trim();
   const createdBy = document.getElementById('createdBy').value.trim() || 'Anonymous';
-  if (!title) return alert('Please enter a title');
+  if (!title) return alert('Enter title');
   ws.send(JSON.stringify({ type: 'create_issue', payload: { title, description: desc, createdBy } }));
   document.getElementById('title').value = '';
   document.getElementById('description').value = '';
