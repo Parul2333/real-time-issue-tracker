@@ -58,9 +58,16 @@
       "description": "for git repo",
       "status": "Open",
       "createdBy": "Parul",
-      "comments": [],
+      "comments": [
+        {
+          "id": 1759916890813,
+          "author": "Parul Rana",
+          "text": "comment ti test on git remote repo",
+          "createdAt": "2025-10-08T09:48:10.813Z"
+        }
+      ],
       "createdAt": "2025-10-08T09:47:29.989Z",
-      "updatedAt": "2025-10-08T09:47:29.989Z"
+      "updatedAt": "2025-10-08T09:48:10.813Z"
     }
   ]
 }
