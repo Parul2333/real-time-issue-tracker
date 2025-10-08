@@ -1,0 +1,15 @@
+{
+  "nextId": 2,
+  "issues": [
+    {
+      "id": 1,
+      "title": "issue1",
+      "description": "first issue",
+      "status": "Open",
+      "createdBy": "Parul",
+      "comments": [],
+      "createdAt": "2025-10-08T09:08:34.140Z",
+      "updatedAt": "2025-10-08T09:08:34.140Z"
+    }
+  ]
+}
