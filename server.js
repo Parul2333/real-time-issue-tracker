@@ -47,7 +47,7 @@ async function saveData(data, commitMessage = null) {
   }
 }
 try {
-  await git.push('origin', 'main');  // or 'master' if your branch is master
+  await git.push('origin', 'master');  // or 'master' if your branch is master
   console.log('Pushed to remote repository successfully.');
 } catch (err) {
   console.error('Git push failed:', err.message);
