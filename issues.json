@@ -83,11 +83,11 @@
       "id": 6,
       "title": "issue5",
       "description": "try3",
-      "status": "Open",
+      "status": "In Progress",
       "createdBy": "Parul",
       "comments": [],
       "createdAt": "2025-10-08T10:01:16.703Z",
-      "updatedAt": "2025-10-08T10:01:16.703Z"
+      "updatedAt": "2025-10-08T10:01:41.081Z"
     }
   ]
 }
