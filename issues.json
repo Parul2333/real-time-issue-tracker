@@ -24,9 +24,16 @@
       "description": "second issue",
       "status": "In Progress",
       "createdBy": "Parul",
-      "comments": [],
+      "comments": [
+        {
+          "id": 1759914669727,
+          "author": "Anonymous",
+          "text": "second comment",
+          "createdAt": "2025-10-08T09:11:09.727Z"
+        }
+      ],
       "createdAt": "2025-10-08T09:10:45.458Z",
-      "updatedAt": "2025-10-08T09:10:48.697Z"
+      "updatedAt": "2025-10-08T09:11:09.727Z"
     }
   ]
 }
