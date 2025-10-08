@@ -41,9 +41,16 @@
       "description": "issue from another window",
       "status": "Closed",
       "createdBy": "Parul Rana",
-      "comments": [],
+      "comments": [
+        {
+          "id": 1759914870194,
+          "author": "Parul",
+          "text": "issue closed",
+          "createdAt": "2025-10-08T09:14:30.194Z"
+        }
+      ],
       "createdAt": "2025-10-08T09:13:56.255Z",
-      "updatedAt": "2025-10-08T09:14:09.702Z"
+      "updatedAt": "2025-10-08T09:14:30.194Z"
     }
   ]
 }
