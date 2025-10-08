@@ -7,9 +7,16 @@
       "description": "first issue",
       "status": "Open",
       "createdBy": "Parul",
-      "comments": [],
+      "comments": [
+        {
+          "id": 1759914611514,
+          "author": "Anonymous",
+          "text": "first comment",
+          "createdAt": "2025-10-08T09:10:11.514Z"
+        }
+      ],
       "createdAt": "2025-10-08T09:08:34.140Z",
-      "updatedAt": "2025-10-08T09:08:34.140Z"
+      "updatedAt": "2025-10-08T09:10:11.514Z"
     }
   ]
 }
