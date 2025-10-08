@@ -122,9 +122,16 @@
       "description": "try6",
       "status": "Open",
       "createdBy": "Parul",
-      "comments": [],
+      "comments": [
+        {
+          "id": 1759918527351,
+          "author": "Anonymous",
+          "text": "test comment 4",
+          "createdAt": "2025-10-08T10:15:27.351Z"
+        }
+      ],
       "createdAt": "2025-10-08T10:15:07.606Z",
-      "updatedAt": "2025-10-08T10:15:07.606Z"
+      "updatedAt": "2025-10-08T10:15:27.351Z"
     }
   ]
 }
