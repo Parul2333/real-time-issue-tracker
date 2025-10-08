@@ -46,7 +46,12 @@ async function saveData(data, commitMessage = null) {
     console.error('Git commit failed:', err.message);
   }
 }
-
+try {
+  await git.push('origin', 'main');  // or 'master' if your branch is master
+  console.log('Pushed to remote repository successfully.');
+} catch (err) {
+  console.error('Git push failed:', err.message);
+}
 // Broadcast helper
 function broadcastJSON(obj) {
   const payload = JSON.stringify(obj);
