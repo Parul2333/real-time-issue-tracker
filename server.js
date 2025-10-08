@@ -36,18 +36,14 @@ async function saveData(data, commitMessage = null) {
   await fs.writeFile(DATA_FILE, json, 'utf8');
 
   // Stage and commit using simple-git
-  try {
-    await git.add(DATA_FILE);
-    // build commit message if null
-    const message = commitMessage || `Update issues.json`;
-    await git.commit(message);
-    console.log('Committed to git:', message);
-  } catch (err) {
-    console.error('Git commit failed:', err.message);
-  }
-}
+ await git.add(DATA_FILE);
+const message = commitMessage || `Update issues.json`;
+await git.commit(message);
+console.log('Committed to git:', message);
+
+// Push to remote after committing
 try {
-  await git.push('origin', 'master');  // or 'master' if your branch is master
+  await git.push('origin', 'main');  // or 'master' if your branch is master
   console.log('Pushed to remote repository successfully.');
 } catch (err) {
   console.error('Git push failed:', err.message);
@@ -59,7 +55,7 @@ function broadcastJSON(obj) {
     if (client.readyState === WebSocket.OPEN) client.send(payload);
   });
 }
-
+}
 // WebSocket message handling
 wss.on('connection', async (ws) => {
   console.log('Client connected');
